@@ -46,7 +46,10 @@ namespace ZohoInvoiceClient
             ret.PONumber = invoice.Element("PONumber").Value;
             ret.InvoiceDate = Utils.ParseDate(invoice.Element("InvoiceDate").Value);
             ret.DueDate = Utils.ParseDate(invoice.Element("DueDate").Value);
-            ret.DueByDays = Utils.ParseInt(invoice.Element("DueByDays").Value);
+            if (invoice.Element("DueByDays") != null)
+            {
+                ret.DueByDays = Utils.ParseInt(invoice.Element("DueByDays").Value);
+            }
             ret.CurrencyCode = invoice.Element("CurrencyCode").Value;
             ret.Total = Utils.ParseDecimal(invoice.Element("Total").Value);
             ret.Balance = Utils.ParseDecimal(invoice.Element("Balance").Value);

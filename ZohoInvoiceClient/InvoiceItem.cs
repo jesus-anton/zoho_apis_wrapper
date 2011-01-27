@@ -33,22 +33,27 @@ namespace ZohoInvoiceClient
 
         internal static InvoiceItem ParseItem(XElement item)
         {
-            InvoiceItem ret = new InvoiceItem(item.Element("ItemID").Value);
+            InvoiceItem ret = null;
 
-            ret.ProductID = item.Element("ProductID").Value;
-            ret.ItemID = item.Element("ItemID").Value;
-            ret.ItemName = item.Element("ItemName").Value;
-            ret.ItemDescription = item.Element("ItemDescription").Value;
-            ret.Price = Utils.ParseDecimal(item.Element("Price").Value);
-            ret.Quantity = Utils.ParseDecimal(item.Element("Quantity").Value);
-            ret.Discount = Utils.ParseDecimal(item.Element("Discount").Value);
-            ret.Tax1Name = item.Element("Tax1Name").Value;
-            ret.Tax1Type = item.Element("Tax1Type").Value;
-            ret.Tax1Percentage = Utils.ParseDecimal(item.Element("Tax1Percentage").Value);
-            ret.Tax2Name = item.Element("Tax2Name").Value;
-            ret.Tax2Type = item.Element("Tax2Type").Value;
-            ret.Tax2Percentage = Utils.ParseDecimal(item.Element("Tax1Percentage").Value);
+            if (item != null)
+            {
+                ret = new InvoiceItem(item.Element("ItemID").Value);
 
+                ret.ProductID = item.Element("ProductID").Value;
+                ret.ItemID = item.Element("ItemID").Value;
+                ret.ItemName = item.Element("ItemName").Value;
+                ret.ItemDescription = item.Element("ItemDescription").Value;
+                ret.Price = Utils.ParseDecimal(item.Element("Price").Value);
+                ret.Quantity = Utils.ParseDecimal(item.Element("Quantity").Value);
+                ret.Discount = Utils.ParseDecimal(item.Element("Discount").Value);
+                ret.Tax1Name = item.Element("Tax1Name").Value;
+                ret.Tax1Type = item.Element("Tax1Type").Value;
+                ret.Tax1Percentage = Utils.ParseDecimal(item.Element("Tax1Percentage").Value);
+                ret.Tax2Name = item.Element("Tax2Name").Value;
+                ret.Tax2Type = item.Element("Tax2Type").Value;
+                ret.Tax2Percentage = Utils.ParseDecimal(item.Element("Tax1Percentage").Value);
+                ret.ItemTotal = Utils.ParseDecimal (item.Element("ItemTotal").Value);
+            }
             return ret;
         }
     }

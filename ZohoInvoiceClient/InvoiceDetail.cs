@@ -10,7 +10,7 @@ namespace ZohoInvoiceClient
     {
         public virtual string CreatedTime { get; set; }
         public virtual string LastModifiedTime { get; set; }
-        public virtual string LastSyncTimeCreatedTime { get; set; }
+        public virtual string LastSyncTime { get; set; }
         public virtual string Source { get; set; }
         public virtual string ReferenceID { get; set; }
         public virtual int PaymentsDue { get; set; }
@@ -49,7 +49,7 @@ namespace ZohoInvoiceClient
 
             ret.CreatedTime = invoiceDetail.Element("CreatedTime").Value;
             ret.LastModifiedTime = invoiceDetail.Element("LastModifiedTime").Value;
-            ret.LastSyncTimeCreatedTime = invoiceDetail.Element("LastSyncTimeCreatedTime").Value;
+            ret.LastSyncTime = invoiceDetail.Element("LastSyncTime").Value;
             ret.Source = invoiceDetail.Element("Source").Value;
             ret.ReferenceID = invoiceDetail.Element("ReferenceID").Value;
             ret.PaymentsDue = Utils.ParseInt(invoiceDetail.Element("PaymentsDue").Value);
@@ -64,11 +64,11 @@ namespace ZohoInvoiceClient
             }
             foreach (XElement invItem in invoiceDetail.Element("InvoiceItems").Elements("InvoiceItem"))
             {
-                ret.InvoiceItems.Add(InvoiceItem.ParseItem(invItem.Element("InvoiceItem")));
+                ret.InvoiceItems.Add(InvoiceItem.ParseItem(invItem));
             }
             foreach (XElement payment in invoiceDetail.Element("Payments").Elements("Payment"))
             {
-                ret.Payments.Add(Payment.ParsePayment(payment.Element("InvoiceItem")));
+                ret.Payments.Add(Payment.ParsePayment(payment));
             }
             foreach (XElement comment in invoiceDetail.Element("Comments").Elements("Comment"))
             {

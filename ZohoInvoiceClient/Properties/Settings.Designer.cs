@@ -22,41 +22,5 @@ namespace ZohoInvoiceClient.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://invoice.zoho.com/api/")]
-        public string API_URL {
-            get {
-                return ((string)(this["API_URL"]));
-            }
-            set {
-                this["API_URL"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("69c5d4691cd8d2a2f9fb1dea99318066")]
-        public string AUTHTOKEN {
-            get {
-                return ((string)(this["AUTHTOKEN"]));
-            }
-            set {
-                this["AUTHTOKEN"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("781e1761bc92afa8686051ce90343f93")]
-        public string API_KEY {
-            get {
-                return ((string)(this["API_KEY"]));
-            }
-            set {
-                this["API_KEY"] = value;
-            }
-        }
     }
 }

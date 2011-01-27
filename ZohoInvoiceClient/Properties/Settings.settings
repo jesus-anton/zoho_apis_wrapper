@@ -1,15 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ZohoInvoiceClient.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="API_URL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://invoice.zoho.com/api/</Value>
-    </Setting>
-    <Setting Name="AUTHTOKEN" Type="System.String" Scope="User">
-      <Value Profile="(Default)">69c5d4691cd8d2a2f9fb1dea99318066</Value>
-    </Setting>
-    <Setting Name="API_KEY" Type="System.String" Scope="User">
-      <Value Profile="(Default)">781e1761bc92afa8686051ce90343f93</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

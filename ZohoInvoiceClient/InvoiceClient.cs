@@ -10,12 +10,6 @@ namespace ZohoInvoiceClient
     {
         public InvoiceClient() { }
 
-        public InvoiceClient(string organization)
-            : base(organization)
-        {
-
-        }
-
         public virtual List<Invoice> ReadInvoices()
         {
             List<Invoice> ret = new List<Invoice>();

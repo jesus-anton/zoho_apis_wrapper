@@ -16,15 +16,7 @@ namespace ZohoInvoiceClient
         public delegate void Action<T1, T2, T3, T4, T5>(T1 p1, T2 p2, T3 p3, T4 p4, T5 p5);
 
         public ClientBase() { }
-
-        public ClientBase(string organization)
-        {
-            ApiUrl = Properties.Settings.Default.API_URL;
-            AuthToken = Properties.Settings.Default.AUTHTOKEN;
-            ApiKey = Properties.Settings.Default.API_KEY;
-            Organization = organization;
-        }
-
+       
         public virtual string ApiUrl { get; set; }
         public virtual string AuthToken { get; set; }
         public virtual string ApiKey { get; set; }
@@ -35,6 +27,9 @@ namespace ZohoInvoiceClient
             StringBuilder sb = new StringBuilder();
             sb.Append(ApiUrl);
             sb.Append(url);
+            if (!string.IsNullOrEmpty(additionalParams)) {
+                sb.Append("/").Append(additionalParams);
+            }
             sb.Append("?authtoken=");
             sb.Append(AuthToken);
             sb.Append("&scope=invoiceapi");
@@ -48,7 +43,6 @@ namespace ZohoInvoiceClient
                 sb.Append(HttpUtility.UrlEncode(Organization, Encoding.UTF8)); // URLEncoder.encode("Surya Test", "UTF-8"));
             }
 
-            sb.Append(additionalParams);
             //System.out.println(sb.toString());
             return sb.ToString();
         }
@@ -114,18 +108,29 @@ namespace ZohoInvoiceClient
         {
             string tmp = SendRequest("", "GET", ConstructURL(url, extraParams));
             XDocument doc = XDocument.Parse(tmp);
-            if (doc.Root.HasElements)
+            if (doc.Root.HasElements && doc.Root.Name == "Response" && doc.Root.Attribute("status") != null)
             {
-                int page = 0, totalPages = 0, total = 0, perPage = 0;
-                XElement pc = doc.Root.Element("PageContext");
-                if (pc != null)
+                if (doc.Root.Attribute("status").Value == "1")
                 {
-                    int.TryParse(pc.Attribute("Page").Value, out page);
-                    int.TryParse(pc.Attribute("Per_Page").Value, out perPage);
-                    int.TryParse(pc.Attribute("Total").Value, out total);
-                    int.TryParse(pc.Attribute("Total_Pages").Value, out totalPages);
+                    int page = 0, totalPages = 0, total = 0, perPage = 0;
+                    XElement pc = doc.Root.Element("PageContext");
+                    if (pc != null)
+                    {
+                        int.TryParse(pc.Attribute("Page").Value, out page);
+                        int.TryParse(pc.Attribute("Per_Page").Value, out perPage);
+                        int.TryParse(pc.Attribute("Total").Value, out total);
+                        int.TryParse(pc.Attribute("Total_Pages").Value, out totalPages);
+                    }
+                    code(page, perPage, total, totalPages, doc.Root);
                 }
-                code(page, perPage, total, totalPages, doc.Root);
+                else
+                {
+                    throw new ApplicationException(string.Format("Error {0}: {1}", doc.Root.Element("Code").Value, doc.Root.Element("Message").Value));
+                }
+            }
+            else
+            {
+                throw new ApplicationException("Malformed response.");
             }
         }
 
