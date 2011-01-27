@@ -6,10 +6,14 @@ using System.Xml.Linq;
 
 namespace ZohoInvoiceClient
 {
-    public class InvoiceClient: ClientBase
+    public class InvoiceClient : ClientBase
     {
-        public InvoiceClient(string organization): base(organization) {
-        
+        public InvoiceClient() { }
+
+        public InvoiceClient(string organization)
+            : base(organization)
+        {
+
         }
 
         public virtual List<Invoice> ReadInvoices()

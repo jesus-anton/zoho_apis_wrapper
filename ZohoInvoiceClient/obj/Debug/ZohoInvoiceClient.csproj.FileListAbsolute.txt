@@ -4,3 +4,9 @@ C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoi
 C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\obj\Debug\ZohoInvoiceClient.dll
 C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\obj\Debug\ZohoInvoiceClient.pdb
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\ZohoInvoiceClient\bin\Debug\ZohoInvoiceClient.dll.config
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\ZohoInvoiceClient\bin\Debug\ZohoInvoiceClient.dll
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\ZohoInvoiceClient\bin\Debug\ZohoInvoiceClient.pdb
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\ZohoInvoiceClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\ZohoInvoiceClient\obj\Debug\ZohoInvoiceClient.dll
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\ZohoInvoiceClient\obj\Debug\ZohoInvoiceClient.pdb

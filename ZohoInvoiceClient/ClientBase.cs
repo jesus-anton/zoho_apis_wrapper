@@ -15,6 +15,8 @@ namespace ZohoInvoiceClient
     {
         public delegate void Action<T1, T2, T3, T4, T5>(T1 p1, T2 p2, T3 p3, T4 p4, T5 p5);
 
+        public ClientBase() { }
+
         public ClientBase(string organization)
         {
             ApiUrl = Properties.Settings.Default.API_URL;
@@ -23,10 +25,10 @@ namespace ZohoInvoiceClient
             Organization = organization;
         }
 
-        protected virtual string ApiUrl { get; set; }
-        protected virtual string AuthToken { get; set; }
-        protected virtual string ApiKey { get; set; }
-        protected virtual string Organization { get; set; }
+        public virtual string ApiUrl { get; set; }
+        public virtual string AuthToken { get; set; }
+        public virtual string ApiKey { get; set; }
+        public virtual string Organization { get; set; }
 
         protected virtual String ConstructURL(String url, String additionalParams)
         {
