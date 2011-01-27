@@ -1,0 +1,6 @@
+C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\bin\Debug\ZohoInvoiceClient.dll.config
+C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\bin\Debug\ZohoInvoiceClient.dll
+C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\bin\Debug\ZohoInvoiceClient.pdb
+C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\obj\Debug\ZohoInvoiceClient.dll
+C:\Users\Jesus\documents\visual studio 2010\Projects\caTestZohoInvoice\ZohoInvoiceClient\obj\Debug\ZohoInvoiceClient.pdb
