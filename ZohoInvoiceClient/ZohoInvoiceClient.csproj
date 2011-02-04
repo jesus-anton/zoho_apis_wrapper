@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ClientBase.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerDetails.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="InvoiceClient.cs" />
     <Compile Include="InvoiceDetail.cs" />

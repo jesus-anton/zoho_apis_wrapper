@@ -24,9 +24,15 @@ namespace ZohoInvoiceClient
         internal static Customer ParseCustomer(XElement customer)
         {
             Customer cust;
+            cust = new Customer();
+            ParseCustomer(customer, cust);
+            return cust;
+        }
 
+        internal static void ParseCustomer(XElement customer, Customer cust)
+        {
             XElement e = customer.Element("CustomerID");
-            cust = new Customer(e.Value);
+            cust.CustomerID = e.Value;
             e = customer.Element("Name");
             cust.Name = e.Value;
             e = customer.Element("PaymentsDue");
@@ -37,8 +43,6 @@ namespace ZohoInvoiceClient
             cust.AvailableCredit = Utils.ParseDecimal(e.Value);
             e = customer.Element("OutstandingBalance");
             cust.OutstandingBalance = Utils.ParseDecimal(e.Value);
-
-            return cust;
         }
     }
 }

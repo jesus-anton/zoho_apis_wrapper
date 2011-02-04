@@ -34,6 +34,25 @@ namespace ZohoInvoiceClient
             return ret;
         }
 
+        public virtual CustomerDetails ReadCustomerDetail(string customerId)
+        {
+            CustomerDetails ret=null;
+            Read("customers", customerId,
+            (page, perPage, total, totalPages, el) =>
+            {
+                XElement customer = el.Element("Customer");
+                ret = CustomerDetails.ParseCustomerDetail(customer);
+            });
+            return ret;
+        }
+
+        public virtual List<CustomerDetails> ReadCustomersDetails()
+        {
+            List<CustomerDetails> ret = new List<CustomerDetails>();
+            ReadCustomers().ForEach((cus) => { ret.Add(ReadCustomerDetail(cus.CustomerID)); });
+            return ret;
+        }
+
         public virtual List<Item> ReadItems()
         {
             List<Item> ret = new List<Item>();
