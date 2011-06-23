@@ -1,0 +1,7 @@
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\My-Zoho.Business\bin\Debug\My-Zoho.Business.dll
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\My-Zoho.Business\bin\Debug\My-Zoho.Business.pdb
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\My-Zoho.Business\bin\Debug\My-Zoho.Data.dll
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\My-Zoho.Business\bin\Debug\My-Zoho.Data.pdb
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\My-Zoho.Business\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\My-Zoho.Business\obj\Debug\My-Zoho.Business.dll
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\My-Zoho.Business\obj\Debug\My-Zoho.Business.pdb

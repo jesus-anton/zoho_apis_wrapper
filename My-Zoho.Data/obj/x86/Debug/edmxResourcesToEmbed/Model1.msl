@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ctalaiz_zohoinvoiceModelStoreContainer" CdmEntityContainer="ctalaiz_zohoinvoiceEntities">
+    <EntitySetMapping Name="connection">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.connection">
+        <MappingFragment StoreEntitySet="connection">
+          <ScalarProperty Name="idConnection" ColumnName="idConnection" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+          <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+          <ScalarProperty Name="idConnection" ColumnName="idConnection" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PaymentsDue" ColumnName="PaymentsDue" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="AvailableCredit" ColumnName="AvailableCredit" />
+          <ScalarProperty Name="OutStandingBalance" ColumnName="OutStandingBalance" />
+          <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+          <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+          <ScalarProperty Name="BillingState" ColumnName="BillingState" />
+          <ScalarProperty Name="BillingZip" ColumnName="BillingZip" />
+          <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
+          <ScalarProperty Name="BillingFax" ColumnName="BillingFax" />
+          <ScalarProperty Name="ShippingAddress" ColumnName="ShippingAddress" />
+          <ScalarProperty Name="ShippingCity" ColumnName="ShippingCity" />
+          <ScalarProperty Name="ShippingState" ColumnName="ShippingState" />
+          <ScalarProperty Name="ShippingZip" ColumnName="ShippingZip" />
+          <ScalarProperty Name="ShippingCountry" ColumnName="ShippingCountry" />
+          <ScalarProperty Name="ShippingFax" ColumnName="ShippingFax" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customercontacts">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.customercontacts">
+        <MappingFragment StoreEntitySet="customercontacts">
+          <ScalarProperty Name="idCustomerContacts" ColumnName="idCustomerContacts" />
+          <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customercustomfields">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.customercustomfields">
+        <MappingFragment StoreEntitySet="customercustomfields">
+          <ScalarProperty Name="idCustomerCustomFields" ColumnName="idCustomerCustomFields" />
+          <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoice">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.invoice">
+        <MappingFragment StoreEntitySet="invoice">
+          <ScalarProperty Name="idInvoice" ColumnName="idInvoice" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="DueByDays" ColumnName="DueByDays" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CreatedTimeInMillis" ColumnName="CreatedTimeInMillis" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="LastSyncTime" ColumnName="LastSyncTime" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+          <ScalarProperty Name="PaymentsDue" ColumnName="PaymentsDue" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="LFName" ColumnName="LFName" />
+          <ScalarProperty Name="LateFeeAmount" ColumnName="LateFeeAmount" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Terms" ColumnName="Terms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoiceitems">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.invoiceitems">
+        <MappingFragment StoreEntitySet="invoiceitems">
+          <ScalarProperty Name="idInvoiceItem" ColumnName="idInvoiceItem" />
+          <ScalarProperty Name="idInvoice" ColumnName="idInvoice" />
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Tax1Name" ColumnName="Tax1Name" />
+          <ScalarProperty Name="Tax1Percentage" ColumnName="Tax1Percentage" />
+          <ScalarProperty Name="Tax1Type" ColumnName="Tax1Type" />
+          <ScalarProperty Name="Tax2Name" ColumnName="Tax2Name" />
+          <ScalarProperty Name="Tax2Type" ColumnName="Tax2Type" />
+          <ScalarProperty Name="Tax2Percentage" ColumnName="Tax2Percentage" />
+          <ScalarProperty Name="ItemTotal" ColumnName="ItemTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="item">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="iditem" ColumnName="iditem" />
+          <ScalarProperty Name="idConnection" ColumnName="idConnection" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Tax1Name" ColumnName="Tax1Name" />
+          <ScalarProperty Name="Tax1Percentage" ColumnName="Tax1Percentage" />
+          <ScalarProperty Name="Tax2Name" ColumnName="Tax2Name" />
+          <ScalarProperty Name="Tax2Percentage" ColumnName="Tax2Percentage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="user_reqestedconnection_iduser_reqestedConnection1" ColumnName="user_reqestedconnection_iduser_reqestedConnection1" />
+          <ScalarProperty Name="user_reqestedconnection_iduser_reqestedConnection" ColumnName="user_reqestedconnection_iduser_reqestedConnection" />
+          <ScalarProperty Name="failedTries" ColumnName="failedTries" />
+          <ScalarProperty Name="lastLogIn" ColumnName="lastLogIn" />
+          <ScalarProperty Name="signedUp" ColumnName="signedUp" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="user_connection1" TypeName="ctalaiz_zohoinvoiceModel.user_connection1" StoreEntitySet="user_connection">
+      <EndProperty Name="user">
+        <ScalarProperty Name="userid" ColumnName="iduser" />
+      </EndProperty>
+      <EndProperty Name="connection">
+        <ScalarProperty Name="idConnection" ColumnName="idconnection" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="user_reqestedconnection">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.user_reqestedconnection">
+        <MappingFragment StoreEntitySet="user_reqestedconnection">
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+          <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="iduser_reqestedConnection" ColumnName="iduser_reqestedConnection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role">
+      <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="roleName" ColumnName="role" />
+          <ScalarProperty Name="idrole" ColumnName="idrole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="user_role" TypeName="ctalaiz_zohoinvoiceModel.user_role" StoreEntitySet="user_role">
+      <EndProperty Name="user">
+        <ScalarProperty Name="userid" ColumnName="iduser" />
+      </EndProperty>
+      <EndProperty Name="role">
+        <ScalarProperty Name="idrole" ColumnName="idrole" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

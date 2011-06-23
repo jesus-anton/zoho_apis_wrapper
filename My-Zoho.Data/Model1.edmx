@@ -1,0 +1,958 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ctalaiz_zohoinvoiceModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ctalaiz_zohoinvoiceModelStoreContainer">
+          <EntitySet Name="connection" EntityType="ctalaiz_zohoinvoiceModel.Store.connection" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="customer" EntityType="ctalaiz_zohoinvoiceModel.Store.customer" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="customercontacts" EntityType="ctalaiz_zohoinvoiceModel.Store.customercontacts" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="customercustomfields" EntityType="ctalaiz_zohoinvoiceModel.Store.customercustomfields" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="invoice" EntityType="ctalaiz_zohoinvoiceModel.Store.invoice" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="invoiceitems" EntityType="ctalaiz_zohoinvoiceModel.Store.invoiceitems" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="item" EntityType="ctalaiz_zohoinvoiceModel.Store.item" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="role" EntityType="ctalaiz_zohoinvoiceModel.Store.role" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="user" EntityType="ctalaiz_zohoinvoiceModel.Store.user" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="user_connection" EntityType="ctalaiz_zohoinvoiceModel.Store.user_connection" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="user_reqestedconnection" EntityType="ctalaiz_zohoinvoiceModel.Store.user_reqestedconnection" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <EntitySet Name="user_role" EntityType="ctalaiz_zohoinvoiceModel.Store.user_role" store:Type="Tables" Schema="ctalaiz_zohoinvoice" />
+          <AssociationSet Name="conneciton_user_connection" Association="ctalaiz_zohoinvoiceModel.Store.conneciton_user_connection">
+            <End Role="connection" EntitySet="connection" />
+            <End Role="user_connection" EntitySet="user_connection" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerContactsCustomer" Association="ctalaiz_zohoinvoiceModel.Store.CustomerContactsCustomer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="customercontacts" EntitySet="customercontacts" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerCustomFieldCustomer" Association="ctalaiz_zohoinvoiceModel.Store.CustomerCustomFieldCustomer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="customercustomfields" EntitySet="customercustomfields" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUST_CONN" Association="ctalaiz_zohoinvoiceModel.Store.FK_CUST_CONN">
+            <End Role="connection" EntitySet="connection" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_reqestedconnection_user1" Association="ctalaiz_zohoinvoiceModel.Store.fk_user_reqestedconnection_user1">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_reqestedconnection" EntitySet="user_reqestedconnection" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceCustomer" Association="ctalaiz_zohoinvoiceModel.Store.InvoiceCustomer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceItemInvoice" Association="ctalaiz_zohoinvoiceModel.Store.InvoiceItemInvoice">
+            <End Role="invoice" EntitySet="invoice" />
+            <End Role="invoiceitems" EntitySet="invoiceitems" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceItemItem" Association="ctalaiz_zohoinvoiceModel.Store.InvoiceItemItem">
+            <End Role="item" EntitySet="item" />
+            <End Role="invoiceitems" EntitySet="invoiceitems" />
+          </AssociationSet>
+          <AssociationSet Name="ItemConnection" Association="ctalaiz_zohoinvoiceModel.Store.ItemConnection">
+            <End Role="connection" EntitySet="connection" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="role_userrole_fk" Association="ctalaiz_zohoinvoiceModel.Store.role_userrole_fk">
+            <End Role="role" EntitySet="role" />
+            <End Role="user_role" EntitySet="user_role" />
+          </AssociationSet>
+          <AssociationSet Name="user_user_connection" Association="ctalaiz_zohoinvoiceModel.Store.user_user_connection">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_connection" EntitySet="user_connection" />
+          </AssociationSet>
+          <AssociationSet Name="user_userrole_fk" Association="ctalaiz_zohoinvoiceModel.Store.user_userrole_fk">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_role" EntitySet="user_role" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="connection">
+          <Key>
+            <PropertyRef Name="idConnection" />
+          </Key>
+          <Property Name="idConnection" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="125" />
+          <Property Name="ApiKey" Type="text" Nullable="false" />
+          <Property Name="AuthToken" Type="text" Nullable="false" />
+          <Property Name="CompanyName" Type="text" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="idCustomer" />
+          </Key>
+          <Property Name="idCustomer" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idConnection" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="125" />
+          <Property Name="PaymentsDue" Type="int" Nullable="false" />
+          <Property Name="CurrencyCode" Type="varchar" MaxLength="10" />
+          <Property Name="AvailableCredit" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="OutStandingBalance" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="BillingAddress" Type="text" />
+          <Property Name="BillingCity" Type="text" />
+          <Property Name="BillingState" Type="text" />
+          <Property Name="BillingZip" Type="text" />
+          <Property Name="BillingCountry" Type="text" />
+          <Property Name="BillingFax" Type="text" />
+          <Property Name="ShippingAddress" Type="text" />
+          <Property Name="ShippingCity" Type="text" />
+          <Property Name="ShippingState" Type="text" />
+          <Property Name="ShippingZip" Type="text" />
+          <Property Name="ShippingCountry" Type="text" />
+          <Property Name="ShippingFax" Type="text" />
+          <Property Name="Notes" Type="text" />
+        </EntityType>
+        <EntityType Name="customercontacts">
+          <Key>
+            <PropertyRef Name="idCustomerContacts" />
+          </Key>
+          <Property Name="idCustomerContacts" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idCustomer" Type="int" />
+          <Property Name="ContactID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Salutation" Type="text" />
+          <Property Name="FirstName" Type="text" Nullable="false" />
+          <Property Name="LastName" Type="text" />
+          <Property Name="Email" Type="text" />
+          <Property Name="Phone" Type="text" />
+          <Property Name="Mobile" Type="text" />
+        </EntityType>
+        <EntityType Name="customercustomfields">
+          <Key>
+            <PropertyRef Name="idCustomer" />
+          </Key>
+          <Property Name="idCustomerCustomFields" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idCustomer" Type="int" Nullable="false" />
+          <Property Name="Key" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Value" Type="text" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="idInvoice" />
+          </Key>
+          <Property Name="idInvoice" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceID" Type="varchar" MaxLength="50" />
+          <Property Name="idCustomer" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="varchar" MaxLength="50" />
+          <Property Name="PONumber" Type="varchar" MaxLength="50" />
+          <Property Name="InvoiceDate" Type="date" Nullable="false" />
+          <Property Name="DueDate" Type="date" Nullable="false" />
+          <Property Name="DueByDays" Type="int" Nullable="false" />
+          <Property Name="CurrencyCode" Type="varchar" MaxLength="20" />
+          <Property Name="Total" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="Balance" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="CreatedTimeInMillis" Type="bigint" Nullable="false" />
+          <Property Name="CreatedTime" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastModifiedTime" Type="varchar" MaxLength="50" />
+          <Property Name="LastSyncTime" Type="text" />
+          <Property Name="Source" Type="text" />
+          <Property Name="ReferenceID" Type="varchar" MaxLength="50" />
+          <Property Name="PaymentsDue" Type="int" Nullable="false" />
+          <Property Name="ExchangeRate" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="LFName" Type="text" />
+          <Property Name="LateFeeAmount" Type="decimal" Precision="20" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="Terms" Type="text" />
+        </EntityType>
+        <EntityType Name="invoiceitems">
+          <Key>
+            <PropertyRef Name="idInvoiceItem" />
+          </Key>
+          <Property Name="idInvoiceItem" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idInvoice" Type="int" Nullable="false" />
+          <Property Name="idItem" Type="int" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ItemDescription" Type="text" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="Quantity" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="Discount" Type="decimal" Precision="20" />
+          <Property Name="Tax1Name" Type="text" />
+          <Property Name="Tax1Percentage" Type="decimal" Precision="5" />
+          <Property Name="Tax1Type" Type="text" />
+          <Property Name="Tax2Name" Type="text" />
+          <Property Name="Tax2Type" Type="text" />
+          <Property Name="Tax2Percentage" Type="decimal" Precision="5" />
+          <Property Name="ItemTotal" Type="decimal" Nullable="false" Precision="20" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="iditem" />
+          </Key>
+          <Property Name="iditem" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idConnection" Type="int" />
+          <Property Name="ItemID" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="125" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Rate" Type="decimal" Nullable="false" Precision="20" />
+          <Property Name="Tax1Name" Type="text" />
+          <Property Name="Tax1Percentage" Type="decimal" Precision="5" />
+          <Property Name="Tax2Name" Type="text" />
+          <Property Name="Tax2Percentage" Type="decimal" Precision="5" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="idrole" />
+          </Key>
+          <Property Name="idrole" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="role" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="password" Type="text" Nullable="false" />
+          <Property Name="signedUp" Type="datetime" Nullable="false" />
+          <Property Name="lastLogIn" Type="datetime" />
+          <Property Name="failedTries" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_connection">
+          <Key>
+            <PropertyRef Name="iduser" />
+            <PropertyRef Name="idconnection" />
+          </Key>
+          <Property Name="iduser" Type="int" Nullable="false" />
+          <Property Name="idconnection" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_reqestedconnection">
+          <Key>
+            <PropertyRef Name="iduser_reqestedConnection" />
+          </Key>
+          <Property Name="iduser_reqestedConnection" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="125" />
+          <Property Name="ApiKey" Type="text" Nullable="false" />
+          <Property Name="AuthToken" Type="text" Nullable="false" />
+          <Property Name="CompanyName" Type="text" />
+        </EntityType>
+        <EntityType Name="user_role">
+          <Key>
+            <PropertyRef Name="iduser" />
+            <PropertyRef Name="idrole" />
+          </Key>
+          <Property Name="iduser" Type="int" Nullable="false" />
+          <Property Name="idrole" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="conneciton_user_connection">
+          <End Role="connection" Type="ctalaiz_zohoinvoiceModel.Store.connection" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_connection" Type="ctalaiz_zohoinvoiceModel.Store.user_connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="connection">
+              <PropertyRef Name="idConnection" />
+            </Principal>
+            <Dependent Role="user_connection">
+              <PropertyRef Name="idconnection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerContactsCustomer">
+          <End Role="customer" Type="ctalaiz_zohoinvoiceModel.Store.customer" Multiplicity="0..1" />
+          <End Role="customercontacts" Type="ctalaiz_zohoinvoiceModel.Store.customercontacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="idCustomer" />
+            </Principal>
+            <Dependent Role="customercontacts">
+              <PropertyRef Name="idCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerCustomFieldCustomer">
+          <End Role="customer" Type="ctalaiz_zohoinvoiceModel.Store.customer" Multiplicity="1" />
+          <End Role="customercustomfields" Type="ctalaiz_zohoinvoiceModel.Store.customercustomfields" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="idCustomer" />
+            </Principal>
+            <Dependent Role="customercustomfields">
+              <PropertyRef Name="idCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUST_CONN">
+          <End Role="connection" Type="ctalaiz_zohoinvoiceModel.Store.connection" Multiplicity="1" />
+          <End Role="customer" Type="ctalaiz_zohoinvoiceModel.Store.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="connection">
+              <PropertyRef Name="idConnection" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="idConnection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_reqestedconnection_user1">
+          <End Role="user" Type="ctalaiz_zohoinvoiceModel.Store.user" Multiplicity="1" />
+          <End Role="user_reqestedconnection" Type="ctalaiz_zohoinvoiceModel.Store.user_reqestedconnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="user_reqestedconnection">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceCustomer">
+          <End Role="customer" Type="ctalaiz_zohoinvoiceModel.Store.customer" Multiplicity="1" />
+          <End Role="invoice" Type="ctalaiz_zohoinvoiceModel.Store.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="idCustomer" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="idCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceItemInvoice">
+          <End Role="invoice" Type="ctalaiz_zohoinvoiceModel.Store.invoice" Multiplicity="1" />
+          <End Role="invoiceitems" Type="ctalaiz_zohoinvoiceModel.Store.invoiceitems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoice">
+              <PropertyRef Name="idInvoice" />
+            </Principal>
+            <Dependent Role="invoiceitems">
+              <PropertyRef Name="idInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceItemItem">
+          <End Role="item" Type="ctalaiz_zohoinvoiceModel.Store.item" Multiplicity="1" />
+          <End Role="invoiceitems" Type="ctalaiz_zohoinvoiceModel.Store.invoiceitems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="iditem" />
+            </Principal>
+            <Dependent Role="invoiceitems">
+              <PropertyRef Name="idItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemConnection">
+          <End Role="connection" Type="ctalaiz_zohoinvoiceModel.Store.connection" Multiplicity="0..1" />
+          <End Role="item" Type="ctalaiz_zohoinvoiceModel.Store.item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="connection">
+              <PropertyRef Name="idConnection" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="idConnection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="role_userrole_fk">
+          <End Role="role" Type="ctalaiz_zohoinvoiceModel.Store.role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_role" Type="ctalaiz_zohoinvoiceModel.Store.user_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="idrole" />
+            </Principal>
+            <Dependent Role="user_role">
+              <PropertyRef Name="idrole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_user_connection">
+          <End Role="user" Type="ctalaiz_zohoinvoiceModel.Store.user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_connection" Type="ctalaiz_zohoinvoiceModel.Store.user_connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="user_connection">
+              <PropertyRef Name="iduser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_userrole_fk">
+          <End Role="user" Type="ctalaiz_zohoinvoiceModel.Store.user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_role" Type="ctalaiz_zohoinvoiceModel.Store.user_role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="user_role">
+              <PropertyRef Name="iduser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ctalaiz_zohoinvoiceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ctalaiz_zohoinvoiceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="connection" EntityType="ctalaiz_zohoinvoiceModel.connection" />
+          <EntitySet Name="customer" EntityType="ctalaiz_zohoinvoiceModel.customer" />
+          <EntitySet Name="customercontacts" EntityType="ctalaiz_zohoinvoiceModel.customercontacts" />
+          <EntitySet Name="customercustomfields" EntityType="ctalaiz_zohoinvoiceModel.customercustomfields" />
+          <EntitySet Name="invoice" EntityType="ctalaiz_zohoinvoiceModel.invoice" />
+          <EntitySet Name="invoiceitems" EntityType="ctalaiz_zohoinvoiceModel.invoiceitems" />
+          <EntitySet Name="item" EntityType="ctalaiz_zohoinvoiceModel.item" />
+          <AssociationSet Name="FK_CUST_CONN" Association="ctalaiz_zohoinvoiceModel.FK_CUST_CONN">
+            <End Role="connection" EntitySet="connection" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="ItemConnection" Association="ctalaiz_zohoinvoiceModel.ItemConnection">
+            <End Role="connection" EntitySet="connection" />
+            <End Role="item" EntitySet="item" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerContactsCustomer" Association="ctalaiz_zohoinvoiceModel.CustomerContactsCustomer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="customercontacts" EntitySet="customercontacts" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerCustomFieldCustomer" Association="ctalaiz_zohoinvoiceModel.CustomerCustomFieldCustomer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="customercustomfields" EntitySet="customercustomfields" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceCustomer" Association="ctalaiz_zohoinvoiceModel.InvoiceCustomer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="invoice" EntitySet="invoice" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceItemInvoice" Association="ctalaiz_zohoinvoiceModel.InvoiceItemInvoice">
+            <End Role="invoice" EntitySet="invoice" />
+            <End Role="invoiceitems" EntitySet="invoiceitems" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceItemItem" Association="ctalaiz_zohoinvoiceModel.InvoiceItemItem">
+            <End Role="item" EntitySet="item" />
+            <End Role="invoiceitems" EntitySet="invoiceitems" />
+          </AssociationSet>
+          <EntitySet Name="user" EntityType="ctalaiz_zohoinvoiceModel.user" />
+          <AssociationSet Name="user_connection1" Association="ctalaiz_zohoinvoiceModel.user_connection1">
+            <End Role="connection" EntitySet="connection" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <EntitySet Name="user_reqestedconnection" EntityType="ctalaiz_zohoinvoiceModel.user_reqestedconnection" />
+          <AssociationSet Name="user_userRequestedConnection" Association="ctalaiz_zohoinvoiceModel.user_userRequestedConnection">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_reqestedconnection" EntitySet="user_reqestedconnection" />
+          </AssociationSet>
+          <EntitySet Name="role" EntityType="ctalaiz_zohoinvoiceModel.role" />
+          <AssociationSet Name="user_role" Association="ctalaiz_zohoinvoiceModel.user_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="connection">
+          <Key>
+            <PropertyRef Name="idConnection" />
+          </Key>
+          <Property Name="idConnection" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="ApiKey" Type="String" Nullable="false" />
+          <Property Name="AuthToken" Type="String" Nullable="false" />
+          <Property Name="CompanyName" Type="String" />
+          <NavigationProperty Name="customer" Relationship="ctalaiz_zohoinvoiceModel.FK_CUST_CONN" FromRole="connection" ToRole="customer" />
+          <NavigationProperty Name="item" Relationship="ctalaiz_zohoinvoiceModel.ItemConnection" FromRole="connection" ToRole="item" />
+          <NavigationProperty Name="user" Relationship="ctalaiz_zohoinvoiceModel.user_connection1" FromRole="connection" ToRole="user" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="idCustomer" />
+          </Key>
+          <Property Name="idCustomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idConnection" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="String" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="PaymentsDue" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" />
+          <Property Name="AvailableCredit" Type="Decimal" Nullable="false" />
+          <Property Name="OutStandingBalance" Type="Decimal" Nullable="false" />
+          <Property Name="BillingAddress" Type="String" />
+          <Property Name="BillingCity" Type="String" />
+          <Property Name="BillingState" Type="String" />
+          <Property Name="BillingZip" Type="String" />
+          <Property Name="BillingCountry" Type="String" />
+          <Property Name="BillingFax" Type="String" />
+          <Property Name="ShippingAddress" Type="String" />
+          <Property Name="ShippingCity" Type="String" />
+          <Property Name="ShippingState" Type="String" />
+          <Property Name="ShippingZip" Type="String" />
+          <Property Name="ShippingCountry" Type="String" />
+          <Property Name="ShippingFax" Type="String" />
+          <Property Name="Notes" Type="String" />
+          <NavigationProperty Name="connection" Relationship="ctalaiz_zohoinvoiceModel.FK_CUST_CONN" FromRole="customer" ToRole="connection" />
+          <NavigationProperty Name="customercontacts" Relationship="ctalaiz_zohoinvoiceModel.CustomerContactsCustomer" FromRole="customer" ToRole="customercontacts" />
+          <NavigationProperty Name="customercustomfields" Relationship="ctalaiz_zohoinvoiceModel.CustomerCustomFieldCustomer" FromRole="customer" ToRole="customercustomfields" />
+          <NavigationProperty Name="invoice" Relationship="ctalaiz_zohoinvoiceModel.InvoiceCustomer" FromRole="customer" ToRole="invoice" />
+        </EntityType>
+        <EntityType Name="customercontacts">
+          <Key>
+            <PropertyRef Name="idCustomerContacts" />
+          </Key>
+          <Property Name="idCustomerContacts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCustomer" Type="Int32" />
+          <Property Name="ContactID" Type="String" Nullable="false" />
+          <Property Name="Salutation" Type="String" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" />
+          <Property Name="Email" Type="String" />
+          <Property Name="Phone" Type="String" />
+          <Property Name="Mobile" Type="String" />
+          <NavigationProperty Name="customer" Relationship="ctalaiz_zohoinvoiceModel.CustomerContactsCustomer" FromRole="customercontacts" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="customercustomfields">
+          <Key>
+            <PropertyRef Name="idCustomer" />
+          </Key>
+          <Property Name="idCustomerCustomFields" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCustomer" Type="Int32" Nullable="false" />
+          <Property Name="Key" Type="String" Nullable="false" />
+          <Property Name="Value" Type="String" />
+          <NavigationProperty Name="customer" Relationship="ctalaiz_zohoinvoiceModel.CustomerCustomFieldCustomer" FromRole="customercustomfields" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="invoice">
+          <Key>
+            <PropertyRef Name="idInvoice" />
+          </Key>
+          <Property Name="idInvoice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceID" Type="String" />
+          <Property Name="idCustomer" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="String" />
+          <Property Name="PONumber" Type="String" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" />
+          <Property Name="DueByDays" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyCode" Type="String" />
+          <Property Name="Total" Type="Decimal" Nullable="false" />
+          <Property Name="Balance" Type="Decimal" Nullable="false" />
+          <Property Name="CreatedTimeInMillis" Type="Int64" Nullable="false" />
+          <Property Name="CreatedTime" Type="String" Nullable="false" />
+          <Property Name="LastModifiedTime" Type="String" />
+          <Property Name="LastSyncTime" Type="String" />
+          <Property Name="Source" Type="String" />
+          <Property Name="ReferenceID" Type="String" />
+          <Property Name="PaymentsDue" Type="Int32" Nullable="false" />
+          <Property Name="ExchangeRate" Type="Decimal" Nullable="false" />
+          <Property Name="LFName" Type="String" />
+          <Property Name="LateFeeAmount" Type="Decimal" />
+          <Property Name="Notes" Type="String" />
+          <Property Name="Terms" Type="String" />
+          <NavigationProperty Name="customer" Relationship="ctalaiz_zohoinvoiceModel.InvoiceCustomer" FromRole="invoice" ToRole="customer" />
+          <NavigationProperty Name="invoiceitems" Relationship="ctalaiz_zohoinvoiceModel.InvoiceItemInvoice" FromRole="invoice" ToRole="invoiceitems" />
+        </EntityType>
+        <EntityType Name="invoiceitems">
+          <Key>
+            <PropertyRef Name="idInvoiceItem" />
+          </Key>
+          <Property Name="idInvoiceItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idInvoice" Type="Int32" Nullable="false" />
+          <Property Name="idItem" Type="Int32" Nullable="false" />
+          <Property Name="ItemName" Type="String" Nullable="false" />
+          <Property Name="ItemDescription" Type="String" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" />
+          <Property Name="Discount" Type="Decimal" />
+          <Property Name="Tax1Name" Type="String" />
+          <Property Name="Tax1Percentage" Type="Decimal" />
+          <Property Name="Tax1Type" Type="String" />
+          <Property Name="Tax2Name" Type="String" />
+          <Property Name="Tax2Type" Type="String" />
+          <Property Name="Tax2Percentage" Type="Decimal" />
+          <Property Name="ItemTotal" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="invoice" Relationship="ctalaiz_zohoinvoiceModel.InvoiceItemInvoice" FromRole="invoiceitems" ToRole="invoice" />
+          <NavigationProperty Name="item" Relationship="ctalaiz_zohoinvoiceModel.InvoiceItemItem" FromRole="invoiceitems" ToRole="item" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="iditem" />
+          </Key>
+          <Property Name="iditem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idConnection" Type="Int32" />
+          <Property Name="ItemID" Type="String" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" />
+          <Property Name="Tax1Name" Type="String" />
+          <Property Name="Tax1Percentage" Type="Decimal" />
+          <Property Name="Tax2Name" Type="String" />
+          <Property Name="Tax2Percentage" Type="Decimal" />
+          <NavigationProperty Name="connection" Relationship="ctalaiz_zohoinvoiceModel.ItemConnection" FromRole="item" ToRole="connection" />
+          <NavigationProperty Name="invoiceitems" Relationship="ctalaiz_zohoinvoiceModel.InvoiceItemItem" FromRole="item" ToRole="invoiceitems" />
+        </EntityType>
+        <Association Name="FK_CUST_CONN">
+          <End Role="connection" Type="ctalaiz_zohoinvoiceModel.connection" Multiplicity="1" />
+          <End Role="customer" Type="ctalaiz_zohoinvoiceModel.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="connection">
+              <PropertyRef Name="idConnection" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="idConnection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemConnection">
+          <End Role="connection" Type="ctalaiz_zohoinvoiceModel.connection" Multiplicity="0..1" />
+          <End Role="item" Type="ctalaiz_zohoinvoiceModel.item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="connection">
+              <PropertyRef Name="idConnection" />
+            </Principal>
+            <Dependent Role="item">
+              <PropertyRef Name="idConnection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerContactsCustomer">
+          <End Role="customer" Type="ctalaiz_zohoinvoiceModel.customer" Multiplicity="0..1" />
+          <End Role="customercontacts" Type="ctalaiz_zohoinvoiceModel.customercontacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="idCustomer" />
+            </Principal>
+            <Dependent Role="customercontacts">
+              <PropertyRef Name="idCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerCustomFieldCustomer">
+          <End Role="customer" Type="ctalaiz_zohoinvoiceModel.customer" Multiplicity="1" />
+          <End Role="customercustomfields" Type="ctalaiz_zohoinvoiceModel.customercustomfields" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="idCustomer" />
+            </Principal>
+            <Dependent Role="customercustomfields">
+              <PropertyRef Name="idCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceCustomer">
+          <End Role="customer" Type="ctalaiz_zohoinvoiceModel.customer" Multiplicity="1" />
+          <End Role="invoice" Type="ctalaiz_zohoinvoiceModel.invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="idCustomer" />
+            </Principal>
+            <Dependent Role="invoice">
+              <PropertyRef Name="idCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceItemInvoice">
+          <End Role="invoice" Type="ctalaiz_zohoinvoiceModel.invoice" Multiplicity="1" />
+          <End Role="invoiceitems" Type="ctalaiz_zohoinvoiceModel.invoiceitems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="invoice">
+              <PropertyRef Name="idInvoice" />
+            </Principal>
+            <Dependent Role="invoiceitems">
+              <PropertyRef Name="idInvoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceItemItem">
+          <End Role="item" Type="ctalaiz_zohoinvoiceModel.item" Multiplicity="1" />
+          <End Role="invoiceitems" Type="ctalaiz_zohoinvoiceModel.invoiceitems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="iditem" />
+            </Principal>
+            <Dependent Role="invoiceitems">
+              <PropertyRef Name="idItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Type="Int32" Name="userid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="userName" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="password" Nullable="false" />
+          <Property Type="DateTime" Name="signedUp" Nullable="false" />
+          <Property Type="DateTime" Name="lastLogIn" />
+          <Property Type="Int32" Name="failedTries" Nullable="false" />
+          <NavigationProperty Name="connection" Relationship="ctalaiz_zohoinvoiceModel.user_connection1" FromRole="user" ToRole="connection" />
+          <NavigationProperty Name="user_reqestedconnection" Relationship="ctalaiz_zohoinvoiceModel.user_userRequestedConnection" FromRole="user" ToRole="user_reqestedconnection" />
+          <NavigationProperty Name="role" Relationship="ctalaiz_zohoinvoiceModel.user_role" FromRole="user" ToRole="role" />
+        </EntityType>
+        <Association Name="user_connection1">
+          <End Type="ctalaiz_zohoinvoiceModel.connection" Role="connection" Multiplicity="*" />
+          <End Type="ctalaiz_zohoinvoiceModel.user" Role="user" Multiplicity="*" />
+        </Association>
+        <EntityType Name="user_reqestedconnection">
+          <Key>
+            <PropertyRef Name="iduser_reqestedConnection" />
+          </Key>
+          <Property Type="Int32" Name="iduser_reqestedConnection" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="userid" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="ApiKey" Nullable="false" />
+          <Property Type="String" Name="AuthToken" Nullable="false" />
+          <Property Type="String" Name="CompanyName" />
+          <NavigationProperty Name="user" Relationship="ctalaiz_zohoinvoiceModel.user_userRequestedConnection" FromRole="user_reqestedconnection" ToRole="user" />
+        </EntityType>
+        <Association Name="user_userRequestedConnection">
+          <End Type="ctalaiz_zohoinvoiceModel.user" Role="user" Multiplicity="1" />
+          <End Type="ctalaiz_zohoinvoiceModel.user_reqestedconnection" Role="user_reqestedconnection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="user_reqestedconnection">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="idrole" />
+          </Key>
+          <Property Type="Int32" Name="idrole" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="roleName" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="ctalaiz_zohoinvoiceModel.user_role" FromRole="role" ToRole="user" />
+        </EntityType>
+        <Association Name="user_role">
+          <End Type="ctalaiz_zohoinvoiceModel.role" Role="role" Multiplicity="*" />
+          <End Type="ctalaiz_zohoinvoiceModel.user" Role="user" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ctalaiz_zohoinvoiceModelStoreContainer" CdmEntityContainer="ctalaiz_zohoinvoiceEntities">
+          <EntitySetMapping Name="connection"><EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.connection"><MappingFragment StoreEntitySet="connection">
+            <ScalarProperty Name="idConnection" ColumnName="idConnection" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+            <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+            <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="customer"><EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.customer"><MappingFragment StoreEntitySet="customer">
+            <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+            <ScalarProperty Name="idConnection" ColumnName="idConnection" />
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="PaymentsDue" ColumnName="PaymentsDue" />
+            <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+            <ScalarProperty Name="AvailableCredit" ColumnName="AvailableCredit" />
+            <ScalarProperty Name="OutStandingBalance" ColumnName="OutStandingBalance" />
+            <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+            <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+            <ScalarProperty Name="BillingState" ColumnName="BillingState" />
+            <ScalarProperty Name="BillingZip" ColumnName="BillingZip" />
+            <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
+            <ScalarProperty Name="BillingFax" ColumnName="BillingFax" />
+            <ScalarProperty Name="ShippingAddress" ColumnName="ShippingAddress" />
+            <ScalarProperty Name="ShippingCity" ColumnName="ShippingCity" />
+            <ScalarProperty Name="ShippingState" ColumnName="ShippingState" />
+            <ScalarProperty Name="ShippingZip" ColumnName="ShippingZip" />
+            <ScalarProperty Name="ShippingCountry" ColumnName="ShippingCountry" />
+            <ScalarProperty Name="ShippingFax" ColumnName="ShippingFax" />
+            <ScalarProperty Name="Notes" ColumnName="Notes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="customercontacts"><EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.customercontacts"><MappingFragment StoreEntitySet="customercontacts">
+            <ScalarProperty Name="idCustomerContacts" ColumnName="idCustomerContacts" />
+            <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+            <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+            <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="customercustomfields"><EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.customercustomfields"><MappingFragment StoreEntitySet="customercustomfields">
+            <ScalarProperty Name="idCustomerCustomFields" ColumnName="idCustomerCustomFields" />
+            <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+            <ScalarProperty Name="Key" ColumnName="Key" />
+            <ScalarProperty Name="Value" ColumnName="Value" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="invoice"><EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.invoice"><MappingFragment StoreEntitySet="invoice">
+            <ScalarProperty Name="idInvoice" ColumnName="idInvoice" />
+            <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+            <ScalarProperty Name="idCustomer" ColumnName="idCustomer" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+            <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+            <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+            <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+            <ScalarProperty Name="DueByDays" ColumnName="DueByDays" />
+            <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+            <ScalarProperty Name="Total" ColumnName="Total" />
+            <ScalarProperty Name="Balance" ColumnName="Balance" />
+            <ScalarProperty Name="CreatedTimeInMillis" ColumnName="CreatedTimeInMillis" />
+            <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+            <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+            <ScalarProperty Name="LastSyncTime" ColumnName="LastSyncTime" />
+            <ScalarProperty Name="Source" ColumnName="Source" />
+            <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+            <ScalarProperty Name="PaymentsDue" ColumnName="PaymentsDue" />
+            <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+            <ScalarProperty Name="LFName" ColumnName="LFName" />
+            <ScalarProperty Name="LateFeeAmount" ColumnName="LateFeeAmount" />
+            <ScalarProperty Name="Notes" ColumnName="Notes" />
+            <ScalarProperty Name="Terms" ColumnName="Terms" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="invoiceitems"><EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.invoiceitems"><MappingFragment StoreEntitySet="invoiceitems">
+            <ScalarProperty Name="idInvoiceItem" ColumnName="idInvoiceItem" />
+            <ScalarProperty Name="idInvoice" ColumnName="idInvoice" />
+            <ScalarProperty Name="idItem" ColumnName="idItem" />
+            <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+            <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+            <ScalarProperty Name="Price" ColumnName="Price" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="Discount" ColumnName="Discount" />
+            <ScalarProperty Name="Tax1Name" ColumnName="Tax1Name" />
+            <ScalarProperty Name="Tax1Percentage" ColumnName="Tax1Percentage" />
+            <ScalarProperty Name="Tax1Type" ColumnName="Tax1Type" />
+            <ScalarProperty Name="Tax2Name" ColumnName="Tax2Name" />
+            <ScalarProperty Name="Tax2Type" ColumnName="Tax2Type" />
+            <ScalarProperty Name="Tax2Percentage" ColumnName="Tax2Percentage" />
+            <ScalarProperty Name="ItemTotal" ColumnName="ItemTotal" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="item"><EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.item"><MappingFragment StoreEntitySet="item">
+            <ScalarProperty Name="iditem" ColumnName="iditem" />
+            <ScalarProperty Name="idConnection" ColumnName="idConnection" />
+            <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Rate" ColumnName="Rate" />
+            <ScalarProperty Name="Tax1Name" ColumnName="Tax1Name" />
+            <ScalarProperty Name="Tax1Percentage" ColumnName="Tax1Percentage" />
+            <ScalarProperty Name="Tax2Name" ColumnName="Tax2Name" />
+            <ScalarProperty Name="Tax2Percentage" ColumnName="Tax2Percentage" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="failedTries" ColumnName="failedTries" />
+                <ScalarProperty Name="lastLogIn" ColumnName="lastLogIn" />
+                <ScalarProperty Name="signedUp" ColumnName="signedUp" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="user_connection1" TypeName="ctalaiz_zohoinvoiceModel.user_connection1" StoreEntitySet="user_connection">
+            <EndProperty Name="user">
+              <ScalarProperty Name="userid" ColumnName="iduser" />
+            </EndProperty>
+            <EndProperty Name="connection">
+              <ScalarProperty Name="idConnection" ColumnName="idconnection" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="user_reqestedconnection">
+            <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.user_reqestedconnection">
+              <MappingFragment StoreEntitySet="user_reqestedconnection">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+                <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="iduser_reqestedConnection" ColumnName="iduser_reqestedConnection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="ctalaiz_zohoinvoiceModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="roleName" ColumnName="role" />
+                <ScalarProperty Name="idrole" ColumnName="idrole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="user_role" TypeName="ctalaiz_zohoinvoiceModel.user_role" StoreEntitySet="user_role">
+            <EndProperty Name="user">
+              <ScalarProperty Name="userid" ColumnName="iduser" />
+            </EndProperty>
+            <EndProperty Name="role">
+              <ScalarProperty Name="idrole" ColumnName="idrole" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.connection" Width="1.5" PointX="0.75" PointY="8.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.customer" Width="1.5" PointX="3" PointY="5" Height="5.8263151041666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.customercontacts" Width="1.5" PointX="5.25" PointY="1.625" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.customercustomfields" Width="1.5" PointX="5.25" PointY="5.375" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.invoice" Width="1.5" PointX="5.25" PointY="8.125" Height="6.0186165364583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.invoiceitems" Width="1.5" PointX="7.5" PointY="11" Height="4.2879036458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.item" Width="1.5" PointX="3" PointY="14.875" Height="3.3263964843749978" IsExpanded="true" />
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.FK_CUST_CONN" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.7881575520833337" />
+          <ConnectorPoint PointX="3" PointY="9.7881575520833337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.ItemConnection" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="11.307190755208334" />
+          <ConnectorPoint PointX="1.5" PointY="16.538198242187498" />
+          <ConnectorPoint PointX="3" PointY="16.538198242187498" />
+        </AssociationConnector>
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.CustomerContactsCustomer" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="5" />
+          <ConnectorPoint PointX="3.75" PointY="3.0958968098958328" />
+          <ConnectorPoint PointX="5.25" PointY="3.0958968098958328" />
+        </AssociationConnector>
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.CustomerCustomFieldCustomer" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="6.3651432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="6.3651432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.InvoiceCustomer" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.4756575520833337" />
+          <ConnectorPoint PointX="5.25" PointY="9.4756575520833337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.InvoiceItemInvoice" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="12.571808268229166" />
+          <ConnectorPoint PointX="7.5" PointY="12.571808268229166" />
+        </AssociationConnector>
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.InvoiceItemItem" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="15.081451822916666" />
+          <ConnectorPoint PointX="7.5" PointY="15.081451822916666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.user" Width="1.5" PointX="0.75" PointY="1.625" Height="2.7494921874999996" />
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.user_connection1" >
+          <ConnectorPoint PointX="1.5" PointY="8.75" />
+          <ConnectorPoint PointX="1.5" PointY="4.3744921875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.user_reqestedconnection" Width="1.5" PointX="7.375" PointY="0.75" Height="2.1725878906249996" />
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.user_userRequestedConnection" >
+          <ConnectorPoint PointX="1.328126" PointY="1.625" />
+          <ConnectorPoint PointX="1.328126" PointY="1.0625" />
+          <ConnectorPoint PointX="7.375" PointY="1.0625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ctalaiz_zohoinvoiceModel.role" Width="1.5" PointX="9.5" PointY="3.875" Height="1.5956835937499996" />
+        <AssociationConnector Association="ctalaiz_zohoinvoiceModel.user_role" >
+          <ConnectorPoint PointX="9.5" PointY="4.7833968098958328" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="4.7833968098958319" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="4.7833968098958328" />
+          <ConnectorPoint PointX="1.9062525" PointY="4.7833968098958328" />
+          <ConnectorPoint PointX="1.9062525" PointY="4.3744921875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

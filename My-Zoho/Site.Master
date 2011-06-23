@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="My_Zoho.SiteMaster" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="Stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <asp:ToolkitScriptManager runat="server" AjaxFrameworkMode="Enabled" ID="smMain"
+        EnablePageMethods="True" EnableScriptLocalization="False" EnableScriptGlobalization="True">
+        <Scripts>
+            <asp:ScriptReference Path="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.5.2.js" />
+            <asp:ScriptReference Path="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js" />
+        </Scripts>
+    </asp:ToolkitScriptManager>
+    <asp:ValidationSummary runat="server" ID="vs01" EnableClientScript="true" ShowMessageBox="true"
+        ShowSummary="false" />
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    My-Zoho Data Import Site
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <% if (Session["UserName"] == null)
+                   { %>
+                [ <a href="~/Account/Login.aspx" id="HeadLoginStatus1" runat="server">Log In</a>]
+                <% }
+                   else
+                   { %>
+                Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>! 
+                [ <a href="~/Account/Logout.aspx" id="HeadLoginStatus2" runat="server">Log Out</a> ] 
+                [ <a href="~/Account/ChangePassword.aspx" id="A1" runat="server">Change Password</a> ]
+                <% } %>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                    IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
+                        <asp:MenuItem NavigateUrl="~/User/RequestConnection.aspx" Text="Request Connection" />
+                        <asp:MenuItem NavigateUrl="~/User/ImportData.aspx" Text="Import Data" />
+                        <asp:MenuItem NavigateUrl="~/User/DeleteData.aspx" Text="Delete Data" />
+                        <asp:MenuItem NavigateUrl="~/Admin/Default.aspx" Text="Admin" />
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    </form>
+</body>
+</html>

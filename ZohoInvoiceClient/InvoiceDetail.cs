@@ -19,6 +19,7 @@ namespace ZohoInvoiceClient
         public virtual decimal LateFeeAmount { get; set; }
         public virtual string Notes { get; set; }
         public virtual string Terms { get; set; }
+        public virtual string CustomerID { get; set; }
 
         public virtual List<string> PaymentGateways { get; protected set; } // ASK - ¿De qué tipo?
         public virtual List<InvoiceItem> InvoiceItems { get; protected set; }
@@ -48,6 +49,7 @@ namespace ZohoInvoiceClient
             Invoice.ParseInvoice(invoiceDetail, ret);
 
             ret.CreatedTime = invoiceDetail.Element("CreatedTime").Value;
+            ret.CustomerID = invoiceDetail.Element("CustomerID").Value;
             ret.LastModifiedTime = invoiceDetail.Element("LastModifiedTime").Value;
             ret.LastSyncTime = invoiceDetail.Element("LastSyncTime").Value;
             ret.Source = invoiceDetail.Element("Source").Value;

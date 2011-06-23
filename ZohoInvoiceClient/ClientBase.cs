@@ -21,6 +21,7 @@ namespace ZohoInvoiceClient
         public virtual string AuthToken { get; set; }
         public virtual string ApiKey { get; set; }
         public virtual string Organization { get; set; }
+        public virtual string Scope { get; set; }
 
         protected virtual String ConstructURL(String url, String additionalParams)
         {
@@ -32,7 +33,7 @@ namespace ZohoInvoiceClient
             }
             sb.Append("?authtoken=");
             sb.Append(AuthToken);
-            sb.Append("&scope=invoiceapi");
+            sb.Append("&scope=").Append(Scope);
             sb.Append("&apikey=");
             sb.Append(ApiKey);
 

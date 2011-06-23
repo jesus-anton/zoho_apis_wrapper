@@ -1,0 +1,5 @@
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\DataClient\bin\x86\Debug\DataClient.dll
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\DataClient\bin\x86\Debug\DataClient.pdb
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\DataClient\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\DataClient\obj\x86\Debug\DataClient.dll
+C:\Users\Jesus\Documents\Visual Studio 2010\Projects\zoho_apis_wrapper\DataClient\obj\x86\Debug\DataClient.pdb

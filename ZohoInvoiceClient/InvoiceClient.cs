@@ -8,7 +8,10 @@ namespace ZohoInvoiceClient
 {
     public class InvoiceClient : ClientBase
     {
-        public InvoiceClient() { }
+        public InvoiceClient()
+        {
+            Scope = "invoiceapi";
+        }
 
         public virtual List<Invoice> ReadInvoices()
         {
@@ -36,7 +39,7 @@ namespace ZohoInvoiceClient
 
         public virtual CustomerDetails ReadCustomerDetail(string customerId)
         {
-            CustomerDetails ret=null;
+            CustomerDetails ret = null;
             Read("customers", customerId,
             (page, perPage, total, totalPages, el) =>
             {

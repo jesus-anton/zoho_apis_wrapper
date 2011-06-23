@@ -13,7 +13,7 @@ namespace ZohoInvoiceClient
         public virtual int PaymentsDue { get; set; }
         public virtual string CurrencyCode { get; set; }
         public virtual decimal AvailableCredit { get; set; }
-        public virtual decimal OutstandingBalance { get; set; }
+        public virtual decimal OutStandingBalance { get; set; }
 
         public Customer() { }
         public Customer(string customerID)
@@ -42,7 +42,7 @@ namespace ZohoInvoiceClient
             e = customer.Element("AvailableCredit");
             cust.AvailableCredit = Utils.ParseDecimal(e.Value);
             e = customer.Element("OutstandingBalance");
-            cust.OutstandingBalance = Utils.ParseDecimal(e.Value);
+            cust.OutStandingBalance = Utils.ParseDecimal(e.Value);
         }
     }
 }
